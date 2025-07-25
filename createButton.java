@@ -8,7 +8,7 @@ public class createButton {
     private JButton OpenFile;
 
     public createButton() {
-        this.OpenFile = new JButton("Read File dept.txt");
+        this.OpenFile = new JButton("OMG mang kuuuuuuuuuuuuuuu");
     }
 
     public void setButton() {
