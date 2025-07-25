@@ -1,5 +1,6 @@
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,7 +9,7 @@ import javax.swing.JPanel;
 public class MainWindow extends JFrame {
 
     public MainWindow() {
-        JPanel panelSouth = new JPanel();
+        JPanel panelSouth = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JPanel panelEast = new JPanel();
         JPanel panelWest = new JPanel();
         JPanel panel = new JPanel(new GridLayout(10, 20));
@@ -31,8 +32,7 @@ public class MainWindow extends JFrame {
         frame.add(panelEast, BorderLayout.EAST);
         frame.add(panelWest, BorderLayout.WEST);
         setTitle("Graphical User Interface (GUI) Part I-II");
-        panelSouth.add(OpenFile);
-        setSize(500, 500);
+        panelSouth.add(OpenFile, FlowLayout.LEFT);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
