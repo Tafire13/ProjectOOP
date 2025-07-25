@@ -8,6 +8,7 @@ public class createFrame extends JFrame {
 
     public createFrame() {
         setSize(1250, 800);
+        setTitle("Graphical User Interface (GUI) Part I-II");
     }
 
     public void setFrame() {
@@ -16,6 +17,7 @@ public class createFrame extends JFrame {
 
     public void setFrame(JButton button[]) {
         setLayout(new GridLayout(20, 10));
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
 }

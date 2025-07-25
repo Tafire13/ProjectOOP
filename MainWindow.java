@@ -24,6 +24,8 @@ public class MainWindow extends JFrame {
             panel.add(button[i]);
         }
         JButton OpenFile = cbtt.getButton();
+        OpenFile.setBorderPainted(false);
+        OpenFile.setFocusable(false);
         South.setPanel();
         East.setPanel();
         West.setPanel();
@@ -31,9 +33,7 @@ public class MainWindow extends JFrame {
         frame.add(panelSouth, BorderLayout.SOUTH);
         frame.add(panelEast, BorderLayout.EAST);
         frame.add(panelWest, BorderLayout.WEST);
-        setTitle("Graphical User Interface (GUI) Part I-II");
         panelSouth.add(OpenFile, FlowLayout.LEFT);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
 }
