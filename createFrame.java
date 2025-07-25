@@ -1,20 +1,21 @@
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class createFrame extends JFrame {
 
     public createFrame() {
-        createButton cbt = new createButton();
-        createPanel cpn = new createPanel();
-        JPanel panel = cpn.getPanel();
+        setSize(1600, 800);
+    }
+
+    public void setFrame() {
         setLayout(new BorderLayout());
-        setTitle("Graphical User Interface (GUI) Part I-II");
-        setSize(500, 500);
-        add(panel, BorderLayout.SOUTH);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
+    }
+
+    public void setFrame(JButton button[]) {
+        setLayout(new GridLayout(20, 10));
     }
 
 }
