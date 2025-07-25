@@ -6,8 +6,10 @@ import javax.swing.JFrame;
 
 public class createFrame extends JFrame {
 
+    Constant constant = new Constant();
+
     public createFrame() {
-        setSize(1250, 800);
+        setSize(constant.width, constant.length);
         setTitle("Graphical User Interface (GUI) Part I-II");
     }
 
@@ -16,7 +18,7 @@ public class createFrame extends JFrame {
     }
 
     public void setFrame(JButton button[]) {
-        setLayout(new GridLayout(20, 10));
+        setLayout(new GridLayout(constant.GridRow, constant.GridColum));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
