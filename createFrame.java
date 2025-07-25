@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 public class createFrame extends JFrame {
 
     public createFrame() {
-        setSize(1600, 800);
+        setSize(1250, 800);
     }
 
     public void setFrame() {
