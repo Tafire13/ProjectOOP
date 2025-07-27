@@ -20,8 +20,4 @@ public class createPanel {
         panel.setBackground(color);
     }
 
-    public JPanel getPanel() {
-        return this.panel;
-    }
-
 }
