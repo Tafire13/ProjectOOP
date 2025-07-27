@@ -1,6 +1,9 @@
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.util.Random;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -19,6 +22,7 @@ public class MainWindow {
     private JPanel panelMonitor3;
     private JPanel panelMonitor4;
     private JPanel panelMonitor5;
+    private JPanel panelMonitor6;
     private JPanel squareYellow;
     private JLabel persenYellow;
     private JPanel squareRed;
@@ -53,6 +57,7 @@ public class MainWindow {
         this.panelMonitor3 = new JPanel();
         this.panelMonitor4 = new JPanel();
         this.panelMonitor5 = new JPanel();
+        this.panelMonitor6 = new JPanel();
         this.squareYellow = new JPanel();
         this.squareRed = new JPanel();
         this.squareGreen = new JPanel();
@@ -72,6 +77,7 @@ public class MainWindow {
         createPanel monitor3 = new createPanel(panelMonitor3);
         createPanel monitor4 = new createPanel(panelMonitor4);
         createPanel monitor5 = new createPanel(panelMonitor5);
+        createPanel monitor6 = new createPanel(panelMonitor6);
         createPanel YellowSquare = new createPanel(squareYellow);
         createPanel RedSquare = new createPanel(squareRed);
         createPanel GreenSquare = new createPanel(squareGreen);
@@ -79,13 +85,14 @@ public class MainWindow {
         createButton about = new createButton();
         createButton calculate = new createButton();
         east.setPanel(400, 200, constant.lightGray3);
-        west.setPanel(800, 200, constant.lightGray3);
+        west.setPanel(900, 200, constant.lightGray3);
         pabout.setPanel(200, 100, constant.lightGray3);
-        monitor.setPanel(750, 600, constant.white);
+        monitor.setPanel(810, 600, constant.white);
         monitor2.setPanel(350, 150, constant.white);
         monitor3.setPanel(350, 200, constant.white);
         monitor4.setPanel(900, 90, constant.white);
         monitor5.setPanel(350, 200, constant.white);
+        monitor6.setPanel(790, 395, constant.softBlue);
         YellowSquare.setPanel(50, 50, constant.yellow);
         RedSquare.setPanel(50, 50, constant.red);
         GreenSquare.setPanel(50, 50, constant.green);
@@ -97,23 +104,27 @@ public class MainWindow {
         panelMonitor3.setBorder(BorderFactory.createLineBorder(constant.black));
         panelMonitor4.setBorder(BorderFactory.createLineBorder(constant.black));
         panelMonitor5.setBorder(BorderFactory.createLineBorder(constant.black));
+        panelMonitor6.setBorder(BorderFactory.createLineBorder(constant.black));
+        //
         open_File.setButton(200, 20, OpenFile);
-        OpenFile.setBackground(constant.lightGreen);
+        OpenFile.setBackground(constant.lightBlue);
         about.setButton(200, 35, buttonAbout);
         buttonAbout.setBackground(constant.pink);
         calculate.setButton(200, 20, Buttoncalculate);
         textField.setHorizontalAlignment(JTextField.CENTER);
         Buttoncalculate.setBackground(constant.lightGreen);
-        //
-        panelWest.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
+        panelWest.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 30));
         panelEast.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
         panelAbout.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 5));
+        panelMonitor.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 100));
         panelMonitor3.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
         panelMonitor4.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 20));
-        panelMonitor5.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 50));
+        panelMonitor5.setLayout(new BorderLayout());
+        panelMonitor6.setLayout(new GridLayout(10, 20));
         panelWest.add(panelMonitor);
         panelEast.add(panelMonitor2);
         panelEast.add(panelMonitor3);
+        panelMonitor.add(panelMonitor6);
         panelMonitor3.add(dept);
         panelMonitor3.add(textField);
         panelMonitor3.add(Buttoncalculate);
@@ -127,6 +138,15 @@ public class MainWindow {
         panelMonitor4.add(buttonAbout);
         panelEast.add(panelMonitor5);
         panelMonitor5.add(OpenFile);
+        JButton button[] = new JButton[200];
+        Color color[] = {constant.red, constant.yellow, constant.green};
+        Random random = new Random();
+        for (int i = 0; i < button.length; i++) {
+            button[i] = new JButton();
+            int r = random.nextInt(color.length);
+            button[i].setBackground(color[r]);
+            panelMonitor6.add(button[i]);
+        }
     }
 
 }

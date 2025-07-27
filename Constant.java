@@ -11,6 +11,8 @@ public class Constant {
     public Color green = new Color(0, 255, 0);
     public Color lightGreen = new Color(144, 238, 144);
     public Color blue = new Color(0, 0, 255);
+    public Color lightBlue = new Color(173, 216, 230);
+    public Color softBlue = new Color(100, 149, 237);
     public Color lighterGray = new Color(240, 240, 240);
     public Color lightGray2 = new Color(211, 211, 211);
     public Color lightGray3 = new Color(0.83f, 0.83f, 0.83f);
