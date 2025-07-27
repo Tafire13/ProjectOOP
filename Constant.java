@@ -9,6 +9,7 @@ public class Constant {
     public int GridColum = 10;
     public Color red = new Color(255, 0, 0);
     public Color green = new Color(0, 255, 0);
+    public Color lightGreen = new Color(144, 238, 144);
     public Color blue = new Color(0, 0, 255);
     public Color lighterGray = new Color(240, 240, 240);
     public Color lightGray2 = new Color(211, 211, 211);

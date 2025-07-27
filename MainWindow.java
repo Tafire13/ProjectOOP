@@ -17,6 +17,7 @@ public class MainWindow {
     private JPanel panelMonitor2;
     private JPanel panelMonitor3;
     private JPanel panelMonitor4;
+    private JPanel panelMonitor5;
     private JButton OpenFile;
     private JButton About;
     private JTextField textField;
@@ -41,6 +42,8 @@ public class MainWindow {
         this.panelMonitor2 = new JPanel();
         this.panelMonitor3 = new JPanel();
         this.panelMonitor4 = new JPanel();
+        this.panelMonitor5 = new JPanel();
+        this.OpenFile = new JButton("Open File");
         createPanel pabout = new createPanel(panelAbout);
         createPanel east = new createPanel(panelEast);
         createPanel west = new createPanel(panelWest);
@@ -48,13 +51,16 @@ public class MainWindow {
         createPanel monitor2 = new createPanel(panelMonitor2);
         createPanel monitor3 = new createPanel(panelMonitor3);
         createPanel monitor4 = new createPanel(panelMonitor4);
+        createPanel monitor5 = new createPanel(panelMonitor5);
+        createButton open_File = new createButton();
         east.setPanel(400, 200, constant.lightGray3);
         west.setPanel(800, 200, constant.lightGray3);
         pabout.setPanel(200, 100, constant.lightGray3);
         monitor.setPanel(750, 600, constant.white);
-        monitor2.setPanel(350, 350, constant.white);
+        monitor2.setPanel(350, 150, constant.white);
         monitor3.setPanel(350, 200, constant.white);
         monitor4.setPanel(750, 90, constant.white);
+        monitor5.setPanel(350, 200, constant.white);
         //ใช้กำหนดขอบ
         panelEast.setBorder(BorderFactory.createLineBorder(constant.black));
         panelWest.setBorder(BorderFactory.createLineBorder(constant.black));
@@ -62,14 +68,21 @@ public class MainWindow {
         panelMonitor2.setBorder(BorderFactory.createLineBorder(constant.black));
         panelMonitor3.setBorder(BorderFactory.createLineBorder(constant.black));
         panelMonitor4.setBorder(BorderFactory.createLineBorder(constant.black));
+        panelMonitor5.setBorder(BorderFactory.createLineBorder(constant.black));
+        open_File.setButton(200, 20, OpenFile);
+        OpenFile.setBackground(constant.lightGreen);
+
         //
         panelWest.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
         panelEast.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
         panelAbout.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 5));
+        panelMonitor5.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 50));
         panelWest.add(panelMonitor);
         panelEast.add(panelMonitor2);
         panelEast.add(panelMonitor3);
         panelAbout.add(panelMonitor4);
+        panelEast.add(panelMonitor5);
+        panelMonitor5.add(OpenFile);
     }
 
 }

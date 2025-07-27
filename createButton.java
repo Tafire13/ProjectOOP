@@ -1,5 +1,5 @@
 
-import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.JButton;
 
 public class createButton {
@@ -10,8 +10,9 @@ public class createButton {
         this.button = new JButton();
     }
 
-    public void setButton(Color color) {
-        button.setBackground(color);
+    public void setButton(int width, int height, JButton button) {
+        button.setPreferredSize(new Dimension(width, height));
+        button.setFocusable(false);
     }
 
     public JButton getButton(String label) {
