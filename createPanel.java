@@ -11,9 +11,13 @@ public class createPanel {
         this.panel = panel;
     }
 
-    public void setPanel() {
-        panel.setPreferredSize(new Dimension(50, 50));
-        panel.setBackground(Color.GRAY);
+    public void setPanel(Color color) {
+        panel.setBackground(color);
+    }
+
+    public void setPanel(int width, int height, Color color) {
+        panel.setPreferredSize(new Dimension(width, height));
+        panel.setBackground(color);
     }
 
     public JPanel getPanel() {

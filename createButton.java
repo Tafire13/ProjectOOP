@@ -1,32 +1,21 @@
 
 import java.awt.Color;
-import java.util.Random;
 import javax.swing.JButton;
 
 public class createButton {
 
-    private JButton OpenFile;
+    private JButton button;
 
     public createButton() {
-        this.OpenFile = new JButton("Read File dept.txt");
+        this.button = new JButton();
     }
 
-    public void setButton() {
+    public void setButton(Color color) {
+        button.setBackground(color);
     }
 
-    public JButton getButton() {
-        return this.OpenFile;
-    }
-
-    public JButton[] getAllButton() {
-        JButton button[] = new JButton[200];
-        Color color[] = {Color.red, Color.green, Color.YELLOW};
-        Random random = new Random();
-        for (int i = 0; i < button.length; i++) {
-            button[i] = new JButton();
-            int ColorRandom = random.nextInt(color.length);
-            button[i].setBackground(color[ColorRandom]);
-        }
+    public JButton getButton(String label) {
+        this.button = new JButton(label);
         return button;
     }
 
