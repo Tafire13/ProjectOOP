@@ -14,7 +14,7 @@ public class createFrame extends JFrame {
         setResizable(false);
         setTitle("Graphical User Interface (GUI) Part I-II");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ImageIcon icon = new ImageIcon(getClass().getResource("/icon.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("icon.png"));
         setIconImage(icon.getImage());
     }
 
