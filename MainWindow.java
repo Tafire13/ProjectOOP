@@ -14,7 +14,7 @@ public class MainWindow {
 
     private Constant constant = new Constant();
     private createFrame mainFrame;
-    private createFrame aboutFrame;
+    private createFrame aboutFrame = new createFrame();
     private JPanel panelEast;
     private JPanel panelWest;
     private JPanel panelSquare;
@@ -31,9 +31,11 @@ public class MainWindow {
     private JLabel persenRed;
     private JPanel squareGreen;
     private JLabel persenGreen;
+    private JPanel panelSouth;
     private JButton OpenFile;
     private JButton buttonAbout;
     private JButton buttonExit;
+    private JButton buttonBack;
     private JButton Buttoncalculate;
     private JLabel dept;
     private createJtextField textField;
@@ -60,6 +62,7 @@ public class MainWindow {
         initMonitorGrid();
         setButtonExit();
         setBUttonAbout();
+        setButtonBack();
     }
 
     private void initButtons() {
@@ -68,6 +71,7 @@ public class MainWindow {
         OpenFile = btnFactory.create("Open File", 200, 20, constant.lightBlue);
         buttonAbout = btnFactory.create("About", 150, 35, constant.pink);
         buttonExit = btnFactory.create("Exit", 150, 35, constant.red);
+        buttonBack = btnFactory.create("Back", 150, 35, constant.pink);
         Buttoncalculate = btnFactory.create("Calculate", 200, 20, constant.lightGreen);
     }
 
@@ -112,6 +116,7 @@ public class MainWindow {
         panelEast.add(panelMonitor2);
         panelEast.add(panelMonitor3);
         panelEast.add(panelMonitor5);
+       
     }
 
     private void initPanelBorders() {
@@ -144,6 +149,7 @@ public class MainWindow {
         panelMonitor5 = createPanel.create(350, 100, constant.white);
         panelMonitor6 = createPanel.create(790, 395, constant.softBlue);
         panelMonitor7 = createPanel.create(350, 55, constant.white);
+        panelSouth = createPanel.create(200, 100, constant.lightGray3);
     }
 
     private void initMonitorGrid() {
@@ -177,8 +183,18 @@ public class MainWindow {
             mainFrame.dispose();
             aboutFrame = new createFrame();
             aboutFrame.setAboutFrame(constant.lightBlue);
+            aboutFrame.setLayout(new BorderLayout());
+            aboutFrame.add(panelSouth, BorderLayout.SOUTH);
+            panelSouth.setLayout(new BorderLayout());
+            panelSouth.add(buttonBack);
             aboutFrame.setVisible(true);
         });
     }
+    public void   setButtonBack(){
+        buttonBack.addActionListener(e -> {
+            aboutFrame.dispose();
+            mainFrame.setVisible(true);
+        });
 
+}
 }
