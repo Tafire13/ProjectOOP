@@ -5,7 +5,6 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.Random;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -77,7 +76,7 @@ public class MainWindow {
         OpenFile = btnFactory.create("Open File", 200, 20, constant.lightBlue);
         buttonAbout = btnFactory.create("About", 150, 35, constant.pink);
         buttonExit = btnFactory.create("Exit", 150, 35, constant.red);
-        buttonBack = btnFactory.create("Back", 150, 35, constant.pink);
+        buttonBack = btnFactory.create("Back", 200, 60, constant.red);
         Buttoncalculate = btnFactory.create("Calculate", 200, 20, constant.lightGreen);
 
         for (int i = 0; i < buttonData.length; i++) {
@@ -96,15 +95,15 @@ public class MainWindow {
     }
 
     private void initText() {
-        this.textField = new createJtextField(200, 20);
+        this.textField = new createJtextField(210, 30);
         this.aboutLabel.setFont(new Font("Tahoma", Font.BOLD, 64));
     }
 
     private void initLayout() {
         panelWest.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 30));
         panelEast.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
-        panelSouth.setLayout(new BorderLayout());
-        panelNorth.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 25));
+        panelSouth.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 20));
+        panelNorth.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 10));
         panelSquare.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5));
         panelMonitor.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 100));
         panelMonitor3.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
@@ -113,6 +112,7 @@ public class MainWindow {
         panelMonitor6.setLayout(new GridLayout(10, 20));
         panelMonitor7.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10));
         panelImage.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 70));
+        textField.setHorizontalAlignment(textField.CENTER);
         panelMonitor.add(panelMonitor6);
         panelMonitor3.add(dept);
         panelMonitor3.add(textField);
@@ -142,7 +142,7 @@ public class MainWindow {
     }
 
     private void initPanelBorders() {
-        Color borderColor = constant.black;
+        /* Color borderColor = constant.black;
         panelEast.setBorder(BorderFactory.createLineBorder(borderColor));
         panelWest.setBorder(BorderFactory.createLineBorder(borderColor));
         panelNorth.setBorder(BorderFactory.createLineBorder(borderColor));
@@ -152,7 +152,7 @@ public class MainWindow {
         panelMonitor4.setBorder(BorderFactory.createLineBorder(borderColor));
         panelMonitor5.setBorder(BorderFactory.createLineBorder(borderColor));
         panelMonitor6.setBorder(BorderFactory.createLineBorder(borderColor));
-        panelMonitor7.setBorder(BorderFactory.createLineBorder(borderColor));
+        panelMonitor7.setBorder(BorderFactory.createLineBorder(borderColor)); */
     }
 
     private void initLegendSquares() {
@@ -164,8 +164,8 @@ public class MainWindow {
     private void initPanelStyles() {
         panelEast = createPanel.create(400, 200, constant.lightGray3);
         panelWest = createPanel.create(900, 200, constant.lightGray3);
-        panelSouth = createPanel.create(200, 100, constant.lightGray3);
-        panelNorth = createPanel.create(1100, 100, constant.pink);
+        panelSouth = createPanel.create(200, 100, constant.white);
+        panelNorth = createPanel.create(1100, 100, constant.white);
         panelSquare = createPanel.create(200, 100, constant.lightGray3);
         panelMonitor = createPanel.create(810, 600, constant.white);
         panelMonitor2 = createPanel.create(350, 250, constant.white);
