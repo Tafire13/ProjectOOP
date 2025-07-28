@@ -7,22 +7,23 @@ import java.util.Random;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class MainWindow {
 
-    private Constant constant;
+    private Constant constant = new Constant();
     private createFrame frame;
     private JPanel panelEast;
     private JPanel panelWest;
-    private JPanel panelAbout;
+    private JPanel panelSquare;
     private JPanel panelMonitor;
     private JPanel panelMonitor2;
     private JPanel panelMonitor3;
     private JPanel panelMonitor4;
     private JPanel panelMonitor5;
     private JPanel panelMonitor6;
+    private JPanel panelMonitor7;
     private JPanel squareYellow;
     private JLabel persenYellow;
     private JPanel squareRed;
@@ -31,6 +32,7 @@ public class MainWindow {
     private JLabel persenGreen;
     private JButton OpenFile;
     private JButton buttonAbout;
+    private JButton buttonExit;
     private JButton Buttoncalculate;
     private JLabel dept;
     private createJtextField textField;
@@ -42,111 +44,130 @@ public class MainWindow {
         frame.setFrame(constant.white);
         frame.add(panelEast, BorderLayout.EAST);
         frame.add(panelWest, BorderLayout.WEST);
-        frame.add(panelAbout, BorderLayout.SOUTH);
+        frame.add(panelSquare, BorderLayout.SOUTH);
         frame.setVisible(true);
     }
 
     private void settingPanel() {
-        this.textField = new createJtextField(200, 20);
-        this.constant = new Constant();
-        this.panelAbout = new JPanel();
-        this.panelEast = new JPanel();
-        this.panelWest = new JPanel();
-        this.panelMonitor = new JPanel();
-        this.panelMonitor2 = new JPanel();
-        this.panelMonitor3 = new JPanel();
-        this.panelMonitor4 = new JPanel();
-        this.panelMonitor5 = new JPanel();
-        this.panelMonitor6 = new JPanel();
-        this.squareYellow = new JPanel();
-        this.squareRed = new JPanel();
-        this.squareGreen = new JPanel();
-        this.squareYellow = new JPanel();
-        this.OpenFile = new JButton("Open File");
-        this.buttonAbout = new JButton("About");
+        initLabel();
+        initButtons();
+        initText();
+        initLegendSquares();
+        initPanelStyles();
+        initPanelBorders();
+        initLayout();
+        initMonitorGrid();
+        setButtonExit();
+    }
+
+    private void initButtons() {
+        createButton btnFactory = new createButton();
+
+        OpenFile = btnFactory.create("Open File", 200, 20, constant.lightBlue);
+        buttonAbout = btnFactory.create("About", 150, 35, constant.pink);
+        buttonExit = btnFactory.create("Exit", 150, 35, constant.red);
+        Buttoncalculate = btnFactory.create("Calculate", 200, 20, constant.lightGreen);
+    }
+
+    private void initLabel() {
         this.persenRed = new JLabel("= 0%(Top Horizon)");
         this.persenYellow = new JLabel("< 50%(Base Horizon)");
         this.persenGreen = new JLabel("> 50%(Fluid Horizon)");
         this.dept = new JLabel("Enter the depth value :");
-        this.Buttoncalculate = new JButton("Calculate");
-        createPanel pabout = new createPanel(panelAbout);
-        createPanel east = new createPanel(panelEast);
-        createPanel west = new createPanel(panelWest);
-        createPanel monitor = new createPanel(panelMonitor);
-        createPanel monitor2 = new createPanel(panelMonitor2);
-        createPanel monitor3 = new createPanel(panelMonitor3);
-        createPanel monitor4 = new createPanel(panelMonitor4);
-        createPanel monitor5 = new createPanel(panelMonitor5);
-        createPanel monitor6 = new createPanel(panelMonitor6);
-        createPanel YellowSquare = new createPanel(squareYellow);
-        createPanel RedSquare = new createPanel(squareRed);
-        createPanel GreenSquare = new createPanel(squareGreen);
-        createButton open_File = new createButton();
-        createButton about = new createButton();
-        createButton calculate = new createButton();
-        east.setPanel(400, 200, constant.lightGray3);
-        west.setPanel(900, 200, constant.lightGray3);
-        pabout.setPanel(200, 100, constant.lightGray3);
-        monitor.setPanel(810, 600, constant.white);
-        monitor2.setPanel(350, 150, constant.white);
-        monitor3.setPanel(350, 200, constant.white);
-        monitor4.setPanel(900, 90, constant.white);
-        monitor5.setPanel(350, 200, constant.white);
-        monitor6.setPanel(790, 395, constant.softBlue);
-        YellowSquare.setPanel(50, 50, constant.yellow);
-        RedSquare.setPanel(50, 50, constant.red);
-        GreenSquare.setPanel(50, 50, constant.green);
-        //ใช้กำหนดขอบ
-        panelEast.setBorder(BorderFactory.createLineBorder(constant.black));
-        panelWest.setBorder(BorderFactory.createLineBorder(constant.black));
-        panelMonitor.setBorder(BorderFactory.createLineBorder(constant.black));
-        panelMonitor2.setBorder(BorderFactory.createLineBorder(constant.black));
-        panelMonitor3.setBorder(BorderFactory.createLineBorder(constant.black));
-        panelMonitor4.setBorder(BorderFactory.createLineBorder(constant.black));
-        panelMonitor5.setBorder(BorderFactory.createLineBorder(constant.black));
-        panelMonitor6.setBorder(BorderFactory.createLineBorder(constant.black));
-        //
-        open_File.setButton(200, 20, OpenFile);
-        OpenFile.setBackground(constant.lightBlue);
-        about.setButton(200, 35, buttonAbout);
-        buttonAbout.setBackground(constant.pink);
-        calculate.setButton(200, 20, Buttoncalculate);
-        textField.setHorizontalAlignment(JTextField.CENTER);
-        Buttoncalculate.setBackground(constant.lightGreen);
+    }
+
+    private void initText() {
+        this.textField = new createJtextField(200, 20);
+    }
+
+    private void initLayout() {
         panelWest.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 30));
         panelEast.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
-        panelAbout.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 5));
+        panelSquare.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5));
         panelMonitor.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 100));
         panelMonitor3.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        panelMonitor4.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 20));
+        panelMonitor4.setLayout(new FlowLayout(FlowLayout.LEFT, 40, 20));
         panelMonitor5.setLayout(new BorderLayout());
         panelMonitor6.setLayout(new GridLayout(10, 20));
-        panelWest.add(panelMonitor);
-        panelEast.add(panelMonitor2);
-        panelEast.add(panelMonitor3);
+        panelMonitor7.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10));
+
         panelMonitor.add(panelMonitor6);
         panelMonitor3.add(dept);
         panelMonitor3.add(textField);
         panelMonitor3.add(Buttoncalculate);
-        panelAbout.add(panelMonitor4);
+        panelSquare.add(panelMonitor4);
         panelMonitor4.add(squareGreen);
         panelMonitor4.add(persenGreen);
         panelMonitor4.add(squareYellow);
         panelMonitor4.add(persenYellow);
         panelMonitor4.add(squareRed);
         panelMonitor4.add(persenRed);
-        panelMonitor4.add(buttonAbout);
-        panelEast.add(panelMonitor5);
+        panelMonitor4.add(panelMonitor7);
         panelMonitor5.add(OpenFile);
-        JButton button[] = new JButton[200];
-        Color color[] = {constant.red, constant.yellow, constant.green};
-        Random random = new Random();
-        for (int i = 0; i < button.length; i++) {
-            button[i] = new JButton();
-            int r = random.nextInt(color.length);
-            button[i].setBackground(color[r]);
-            panelMonitor6.add(button[i]);
+        panelMonitor7.add(buttonAbout);
+        panelMonitor7.add(buttonExit);
+        panelWest.add(panelMonitor);
+        panelEast.add(panelMonitor2);
+        panelEast.add(panelMonitor3);
+        panelEast.add(panelMonitor5);
+    }
+
+    private void initPanelBorders() {
+        Color borderColor = constant.black;
+        panelEast.setBorder(BorderFactory.createLineBorder(borderColor));
+        panelWest.setBorder(BorderFactory.createLineBorder(borderColor));
+        panelMonitor.setBorder(BorderFactory.createLineBorder(borderColor));
+        panelMonitor2.setBorder(BorderFactory.createLineBorder(borderColor));
+        panelMonitor3.setBorder(BorderFactory.createLineBorder(borderColor));
+        panelMonitor4.setBorder(BorderFactory.createLineBorder(borderColor));
+        panelMonitor5.setBorder(BorderFactory.createLineBorder(borderColor));
+        panelMonitor6.setBorder(BorderFactory.createLineBorder(borderColor));
+        panelMonitor7.setBorder(BorderFactory.createLineBorder(borderColor));
+    }
+
+    private void initLegendSquares() {
+        squareGreen = createPanel.create(50, 50, constant.green);
+        squareYellow = createPanel.create(50, 50, constant.yellow);
+        squareRed = createPanel.create(50, 50, constant.red);
+    }
+
+    private void initPanelStyles() {
+        panelEast = createPanel.create(400, 200, constant.lightGray3);
+        panelWest = createPanel.create(900, 200, constant.lightGray3);
+        panelSquare = createPanel.create(200, 100, constant.lightGray3);
+        panelMonitor = createPanel.create(810, 600, constant.white);
+        panelMonitor2 = createPanel.create(350, 250, constant.white);
+        panelMonitor3 = createPanel.create(350, 200, constant.white);
+        panelMonitor4 = createPanel.create(1200, 90, constant.white);
+        panelMonitor5 = createPanel.create(350, 100, constant.white);
+        panelMonitor6 = createPanel.create(790, 395, constant.softBlue);
+        panelMonitor7 = createPanel.create(350, 55, constant.white);
+    }
+
+    private void initMonitorGrid() {
+        Color[] colors = {constant.red, constant.yellow, constant.green};
+        Random rand = new Random();
+        for (int i = 0; i < 200; i++) {
+            JButton button = new JButton();
+            button.setBackground(colors[rand.nextInt(colors.length)]);
+            button.setFocusable(false);
+            panelMonitor6.add(button);
         }
+    }
+
+    public void setButtonExit() {
+        buttonExit.addActionListener(e -> {
+            int choice = JOptionPane.showConfirmDialog(
+                    null,
+                    "Are you sure you want to leave?",
+                    "Confirm exit",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.ERROR_MESSAGE
+            );
+            if (choice == JOptionPane.YES_OPTION) {
+                System.exit(0);
+            }
+        });
     }
 
 }

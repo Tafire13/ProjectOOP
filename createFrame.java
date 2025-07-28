@@ -10,7 +10,7 @@ public class createFrame extends JFrame {
     public void setFrame(Color color) {
         setSize(constant.width, constant.length);
         getContentPane().setBackground(color);
-        setUndecorated(false);
+        setUndecorated(true);
         setResizable(false);
         setTitle("Graphical User Interface (GUI) Part I-II");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
