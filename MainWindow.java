@@ -13,7 +13,8 @@ import javax.swing.JPanel;
 public class MainWindow {
 
     private Constant constant = new Constant();
-    private createFrame frame;
+    private createFrame mainFrame;
+    private createFrame aboutFrame;
     private JPanel panelEast;
     private JPanel panelWest;
     private JPanel panelSquare;
@@ -38,14 +39,14 @@ public class MainWindow {
     private createJtextField textField;
 
     public MainWindow() {
-        this.frame = new createFrame();
+        this.mainFrame = new createFrame();
         settingPanel();
-        frame.setLayout(new BorderLayout());
-        frame.setFrame(constant.white);
-        frame.add(panelEast, BorderLayout.EAST);
-        frame.add(panelWest, BorderLayout.WEST);
-        frame.add(panelSquare, BorderLayout.SOUTH);
-        frame.setVisible(true);
+        mainFrame.setLayout(new BorderLayout());
+        mainFrame.setFrame(constant.white, "Project OOP");
+        mainFrame.add(panelEast, BorderLayout.EAST);
+        mainFrame.add(panelWest, BorderLayout.WEST);
+        mainFrame.add(panelSquare, BorderLayout.SOUTH);
+        mainFrame.setVisible(true);
     }
 
     private void settingPanel() {
@@ -58,6 +59,7 @@ public class MainWindow {
         initLayout();
         initMonitorGrid();
         setButtonExit();
+        setBUttonAbout();
     }
 
     private void initButtons() {
@@ -167,6 +169,15 @@ public class MainWindow {
             if (choice == JOptionPane.YES_OPTION) {
                 System.exit(0);
             }
+        });
+    }
+
+    public void setBUttonAbout() {
+        buttonAbout.addActionListener(e -> {
+            mainFrame.dispose();
+            aboutFrame = new createFrame();
+            aboutFrame.setAboutFrame(constant.lightBlue);
+            aboutFrame.setVisible(true);
         });
     }
 
