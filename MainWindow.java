@@ -63,7 +63,6 @@ public class MainWindow {
         initText();
         initLegendSquares();
         initPanelStyles();
-        initPanelBorders();
         initLayout();
         initMonitorGrid();
         setButtonExit();
@@ -79,10 +78,15 @@ public class MainWindow {
         buttonBack = btnFactory.create("Back", 200, 60, constant.red);
         Buttoncalculate = btnFactory.create("Calculate", 200, 20, constant.lightGreen);
 
+        ImageIcon[] icons = {
+            new ImageIcon("q.JPG"),
+            new ImageIcon("p.JPG"),
+            new ImageIcon("c.JPG")
+        };
+
         for (int i = 0; i < buttonData.length; i++) {
             buttonData[i] = btnFactory.create("1", 1, 1, constant.white);
-            ImageIcon icon = new ImageIcon("icon.png");
-            buttonData[i].setIcon(icon);
+            buttonData[i].setIcon(icons[i]);
         }
     }
 
@@ -102,7 +106,7 @@ public class MainWindow {
     private void initLayout() {
         panelWest.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 30));
         panelEast.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
-        panelSouth.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 20));
+        panelSouth.setLayout(new BorderLayout());
         panelNorth.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 10));
         panelSquare.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5));
         panelMonitor.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 100));
@@ -139,20 +143,6 @@ public class MainWindow {
             panelInsertImage[i].setLayout(new BorderLayout());
             panelInsertImage[i].add(buttonData[i]);
         }
-    }
-
-    private void initPanelBorders() {
-        /* Color borderColor = constant.black;
-        panelEast.setBorder(BorderFactory.createLineBorder(borderColor));
-        panelWest.setBorder(BorderFactory.createLineBorder(borderColor));
-        panelNorth.setBorder(BorderFactory.createLineBorder(borderColor));
-        panelMonitor.setBorder(BorderFactory.createLineBorder(borderColor));
-        panelMonitor2.setBorder(BorderFactory.createLineBorder(borderColor));
-        panelMonitor3.setBorder(BorderFactory.createLineBorder(borderColor));
-        panelMonitor4.setBorder(BorderFactory.createLineBorder(borderColor));
-        panelMonitor5.setBorder(BorderFactory.createLineBorder(borderColor));
-        panelMonitor6.setBorder(BorderFactory.createLineBorder(borderColor));
-        panelMonitor7.setBorder(BorderFactory.createLineBorder(borderColor)); */
     }
 
     private void initLegendSquares() {
@@ -222,6 +212,5 @@ public class MainWindow {
             aboutFrame.dispose();
             mainFrame.setVisible(true);
         });
-
     }
 }
