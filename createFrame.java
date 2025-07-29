@@ -13,6 +13,7 @@ public class createFrame extends JFrame {
         getContentPane().setBackground(color);
         setUndecorated(false);
         setResizable(false);
+        setLocationRelativeTo(null);
         setTitle(label);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("icon.png"));
@@ -22,6 +23,7 @@ public class createFrame extends JFrame {
     public void setAboutFrame(Color color) {
         setTitle("About");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setSize(1250, 800);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());

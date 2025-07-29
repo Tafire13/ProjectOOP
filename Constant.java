@@ -25,4 +25,7 @@ public class Constant {
     public Color orange = new Color(255, 165, 0);
     public Color pink = new Color(255, 192, 203);
     public Color purple = new Color(128, 0, 128);
+    //data
+    public String name[] = {"Supachok Nikankoon", "Aekanucha Chaisena", "Anatchaya Supasorn"};
+    public String SID[] = {"67011212063", "67011212105", "67011212102"};
 }

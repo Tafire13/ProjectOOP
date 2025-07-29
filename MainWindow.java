@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -30,6 +31,11 @@ public class MainWindow {
     private JLabel dept;
     private JLabel aboutLabel;
     private createJtextField textField;
+    private ImageIcon[] icons = {
+        new ImageIcon("c.JPG"),
+        new ImageIcon("q2.JPG"),
+        new ImageIcon("p.JPG")
+    };
 
     public MainWindow() {
         settingPanel();
@@ -52,6 +58,7 @@ public class MainWindow {
         setButtonExit();
         setBUttonAbout();
         setButtonBack();
+        setButtonData();
     }
 
     private void initButtons() {
@@ -61,16 +68,14 @@ public class MainWindow {
         buttonExit = btnFactory.create("Exit", 150, 35, constant.red);
         buttonBack = btnFactory.create("Back", 200, 60, constant.red);
         Buttoncalculate = btnFactory.create("Calculate", 200, 20, constant.lightGreen);
-
-        ImageIcon[] icons = {
-            new ImageIcon("q.JPG"),
-            new ImageIcon("p.JPG"),
-            new ImageIcon("c.JPG")
-        };
-
         for (int i = 0; i < buttonData.length; i++) {
-            buttonData[i] = btnFactory.create("1", 1, 1, constant.white);
-            buttonData[i].setIcon(icons[i]);
+            Image img = icons[i].getImage();
+
+            Image scaledImg = img.getScaledInstance(350, 400, Image.SCALE_SMOOTH);
+
+            ImageIcon scaledIcon = new ImageIcon(scaledImg);
+            buttonData[i] = btnFactory.create("", 1, 1, constant.white);
+            buttonData[i].setIcon(scaledIcon);
         }
     }
 
@@ -196,5 +201,18 @@ public class MainWindow {
             aboutFrame.dispose();
             mainFrame.setVisible(true);
         });
+    }
+
+    public void setButtonData() {
+        for (int i = 0; i < buttonData.length; i++) {
+            final int intdex = i;
+            buttonData[i].addActionListener(e -> {
+                JOptionPane.showMessageDialog(null,
+                        constant.name[intdex] + "\n" + constant.SID[intdex],
+                        "Data",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            });
+        }
     }
 }
