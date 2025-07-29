@@ -14,28 +14,13 @@ import javax.swing.JPanel;
 public class MainWindow {
 
     private Constant constant = new Constant();
+    public createFrame mainFrame = new createFrame();
+    private componentPanel cPanel = new componentPanel();
     private createFrame aboutFrame = new createFrame();
-    private createFrame mainFrame;
-    private JPanel panelEast;
-    private JPanel panelWest;
-    private JPanel panelSquare;
-    private JPanel panelSouth;
-    private JPanel panelNorth;
-    private JPanel panelMonitor;
-    private JPanel panelMonitor2;
-    private JPanel panelMonitor3;
-    private JPanel panelMonitor4;
-    private JPanel panelMonitor5;
-    private JPanel panelMonitor6;
-    private JPanel panelMonitor7;
-    private JPanel squareYellow;
-    private JLabel persenYellow;
-    private JPanel squareRed;
-    private JLabel persenRed;
-    private JPanel squareGreen;
     private JLabel persenGreen;
-    private JPanel panelImage;
+    private JLabel persenYellow;
     private JPanel panelInsertImage[] = new JPanel[3];
+    private JLabel persenRed;
     private JButton buttonData[] = new JButton[3];
     private JButton OpenFile;
     private JButton buttonAbout;
@@ -47,13 +32,12 @@ public class MainWindow {
     private createJtextField textField;
 
     public MainWindow() {
-        this.mainFrame = new createFrame();
         settingPanel();
         mainFrame.setLayout(new BorderLayout());
         mainFrame.setFrame(constant.white, "Project OOP");
-        mainFrame.add(panelEast, BorderLayout.EAST);
-        mainFrame.add(panelWest, BorderLayout.WEST);
-        mainFrame.add(panelSquare, BorderLayout.SOUTH);
+        mainFrame.add(cPanel.panelEast, BorderLayout.EAST);
+        mainFrame.add(cPanel.panelWest, BorderLayout.WEST);
+        mainFrame.add(cPanel.panelSquare, BorderLayout.SOUTH);
         mainFrame.setVisible(true);
     }
 
@@ -104,67 +88,67 @@ public class MainWindow {
     }
 
     private void initLayout() {
-        panelWest.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 30));
-        panelEast.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
-        panelSouth.setLayout(new BorderLayout());
-        panelNorth.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 10));
-        panelSquare.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5));
-        panelMonitor.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 100));
-        panelMonitor3.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        panelMonitor4.setLayout(new FlowLayout(FlowLayout.LEFT, 40, 20));
-        panelMonitor5.setLayout(new BorderLayout());
-        panelMonitor6.setLayout(new GridLayout(10, 20));
-        panelMonitor7.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10));
-        panelImage.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 70));
+        cPanel.panelWest.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 30));
+        cPanel.panelEast.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
+        cPanel.panelSouth.setLayout(new BorderLayout());
+        cPanel.panelNorth.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 10));
+        cPanel.panelSquare.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5));
+        cPanel.panelMonitor.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 100));
+        cPanel.panelMonitor3.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        cPanel.panelMonitor4.setLayout(new FlowLayout(FlowLayout.LEFT, 40, 20));
+        cPanel.panelMonitor5.setLayout(new BorderLayout());
+        cPanel.panelMonitor6.setLayout(new GridLayout(10, 20));
+        cPanel.panelMonitor7.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10));
+        cPanel.panelImage.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 70));
         textField.setHorizontalAlignment(textField.CENTER);
-        panelMonitor.add(panelMonitor6);
-        panelMonitor3.add(dept);
-        panelMonitor3.add(textField);
-        panelMonitor3.add(Buttoncalculate);
-        panelSquare.add(panelMonitor4);
-        panelMonitor4.add(squareGreen);
-        panelMonitor4.add(persenGreen);
-        panelMonitor4.add(squareYellow);
-        panelMonitor4.add(persenYellow);
-        panelMonitor4.add(squareRed);
-        panelMonitor4.add(persenRed);
-        panelMonitor4.add(panelMonitor7);
-        panelMonitor5.add(OpenFile);
-        panelMonitor7.add(buttonAbout);
-        panelMonitor7.add(buttonExit);
-        panelWest.add(panelMonitor);
-        panelEast.add(panelMonitor2);
-        panelEast.add(panelMonitor3);
-        panelEast.add(panelMonitor5);
-        panelNorth.add(aboutLabel);
-        panelSouth.add(buttonBack);
+        cPanel.panelMonitor.add(cPanel.panelMonitor6);
+        cPanel.panelMonitor3.add(dept);
+        cPanel.panelMonitor3.add(textField);
+        cPanel.panelMonitor3.add(Buttoncalculate);
+        cPanel.panelSquare.add(cPanel.panelMonitor4);
+        cPanel.panelMonitor4.add(cPanel.squareGreen);
+        cPanel.panelMonitor4.add(persenGreen);
+        cPanel.panelMonitor4.add(cPanel.squareYellow);
+        cPanel.panelMonitor4.add(persenYellow);
+        cPanel.panelMonitor4.add(cPanel.squareRed);
+        cPanel.panelMonitor4.add(persenRed);
+        cPanel.panelMonitor4.add(cPanel.panelMonitor7);
+        cPanel.panelMonitor5.add(OpenFile);
+        cPanel.panelMonitor7.add(buttonAbout);
+        cPanel.panelMonitor7.add(buttonExit);
+        cPanel.panelWest.add(cPanel.panelMonitor);
+        cPanel.panelEast.add(cPanel.panelMonitor2);
+        cPanel.panelEast.add(cPanel.panelMonitor3);
+        cPanel.panelEast.add(cPanel.panelMonitor5);
+        cPanel.panelNorth.add(aboutLabel);
+        cPanel.panelSouth.add(buttonBack);
         for (int i = 0; i < panelInsertImage.length; i++) {
-            panelImage.add(panelInsertImage[i]);
+            cPanel.panelImage.add(panelInsertImage[i]);
             panelInsertImage[i].setLayout(new BorderLayout());
             panelInsertImage[i].add(buttonData[i]);
         }
     }
 
     private void initLegendSquares() {
-        squareGreen = createPanel.create(50, 50, constant.green);
-        squareYellow = createPanel.create(50, 50, constant.yellow);
-        squareRed = createPanel.create(50, 50, constant.red);
+        cPanel.squareGreen = createPanel.create(50, 50, constant.green);
+        cPanel.squareYellow = createPanel.create(50, 50, constant.yellow);
+        cPanel.squareRed = createPanel.create(50, 50, constant.red);
     }
 
     private void initPanelStyles() {
-        panelEast = createPanel.create(400, 200, constant.lightGray3);
-        panelWest = createPanel.create(900, 200, constant.lightGray3);
-        panelSouth = createPanel.create(200, 100, constant.white);
-        panelNorth = createPanel.create(1100, 100, constant.white);
-        panelSquare = createPanel.create(200, 100, constant.lightGray3);
-        panelMonitor = createPanel.create(810, 600, constant.white);
-        panelMonitor2 = createPanel.create(350, 250, constant.white);
-        panelMonitor3 = createPanel.create(350, 200, constant.white);
-        panelMonitor4 = createPanel.create(1200, 90, constant.white);
-        panelMonitor5 = createPanel.create(350, 100, constant.white);
-        panelMonitor6 = createPanel.create(790, 395, constant.softBlue);
-        panelMonitor7 = createPanel.create(350, 55, constant.white);
-        panelImage = createPanel.create(700, 800, constant.pink);
+        cPanel.panelEast = createPanel.create(400, 200, constant.lightGray3);
+        cPanel.panelWest = createPanel.create(900, 200, constant.lightGray3);
+        cPanel.panelSouth = createPanel.create(200, 100, constant.white);
+        cPanel.panelNorth = createPanel.create(1100, 100, constant.white);
+        cPanel.panelSquare = createPanel.create(200, 100, constant.lightGray3);
+        cPanel.panelMonitor = createPanel.create(810, 600, constant.white);
+        cPanel.panelMonitor2 = createPanel.create(350, 250, constant.white);
+        cPanel.panelMonitor3 = createPanel.create(350, 200, constant.white);
+        cPanel.panelMonitor4 = createPanel.create(1200, 90, constant.white);
+        cPanel.panelMonitor5 = createPanel.create(350, 100, constant.white);
+        cPanel.panelMonitor6 = createPanel.create(790, 395, constant.softBlue);
+        cPanel.panelMonitor7 = createPanel.create(350, 55, constant.white);
+        cPanel.panelImage = createPanel.create(700, 800, constant.pink);
         for (int i = 0; i < panelInsertImage.length; i++) {
             panelInsertImage[i] = createPanel.create(350, 400, constant.white);
         }
@@ -177,7 +161,7 @@ public class MainWindow {
             JButton button = new JButton();
             button.setBackground(colors[rand.nextInt(colors.length)]);
             button.setFocusable(false);
-            panelMonitor6.add(button);
+            cPanel.panelMonitor6.add(button);
         }
     }
 
@@ -200,9 +184,9 @@ public class MainWindow {
         buttonAbout.addActionListener(e -> {
             mainFrame.dispose();
             aboutFrame.setAboutFrame(constant.lightBlue);
-            aboutFrame.add(panelSouth, BorderLayout.SOUTH);
-            aboutFrame.add(panelImage, BorderLayout.CENTER);
-            aboutFrame.add(panelNorth, BorderLayout.NORTH);
+            aboutFrame.add(cPanel.panelSouth, BorderLayout.SOUTH);
+            aboutFrame.add(cPanel.panelImage, BorderLayout.CENTER);
+            aboutFrame.add(cPanel.panelNorth, BorderLayout.NORTH);
             aboutFrame.setVisible(true);
         });
     }
