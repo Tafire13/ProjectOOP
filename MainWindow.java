@@ -5,12 +5,16 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JTextArea;
 
 public class MainWindow {
 
@@ -205,13 +209,24 @@ public class MainWindow {
 
     public void setButtonData() {
         for (int i = 0; i < buttonData.length; i++) {
-            final int intdex = i;
-            buttonData[i].addActionListener(e -> {
-                JOptionPane.showMessageDialog(null,
-                        constant.name[intdex] + "\n" + constant.SID[intdex],
-                        "Data",
-                        JOptionPane.INFORMATION_MESSAGE
-                );
+            final int index = i;
+            JPopupMenu popupMenu = new JPopupMenu();
+            JTextArea textArea = new JTextArea("Name :" + constant.name[i] + "\n ID :" + constant.SID[i]);
+            textArea.setSize(100, 50);
+            textArea.setEditable(false);
+            textArea.setOpaque(false);
+            textArea.setFocusable(false);
+            popupMenu.add(textArea);
+            buttonData[index].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    popupMenu.show(buttonData[index], 50, buttonData[index].getHeight());
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    popupMenu.setVisible(false);
+                }
             });
         }
     }
