@@ -10,11 +10,10 @@ import java.awt.event.MouseEvent;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.JTextArea;
 
 public class MainWindow {
 
@@ -22,6 +21,7 @@ public class MainWindow {
     public createFrame mainFrame = new createFrame();
     private componentPanel cPanel = new componentPanel();
     private createFrame aboutFrame = new createFrame();
+    private JFrame dataFrame[] = new JFrame[3];
     private JLabel persenGreen;
     private JLabel persenYellow;
     private JPanel panelInsertImage[] = new JPanel[3];
@@ -37,7 +37,7 @@ public class MainWindow {
     private createJtextField textField;
     private ImageIcon[] icons = {
         new ImageIcon("c.JPG"),
-        new ImageIcon("q2.JPG"),
+        new ImageIcon("q.png"),
         new ImageIcon("p.JPG")
     };
 
@@ -210,22 +210,29 @@ public class MainWindow {
     public void setButtonData() {
         for (int i = 0; i < buttonData.length; i++) {
             final int index = i;
-            JPopupMenu popupMenu = new JPopupMenu();
-            JTextArea textArea = new JTextArea("Name :" + constant.name[i] + "\n ID :" + constant.SID[i]);
-            textArea.setSize(100, 50);
-            textArea.setEditable(false);
-            textArea.setOpaque(false);
-            textArea.setFocusable(false);
-            popupMenu.add(textArea);
+            JLabel label = new JLabel(
+                    "<html>Name :" + constant.name[i]
+                    + "<br>ID :" + constant.SID[i] + "</html>");
+            label.setHorizontalAlignment(JLabel.CENTER);
+            label.setVerticalAlignment(JLabel.CENTER);
+            dataFrame[i] = new JFrame();
+            dataFrame[i].setSize(200, 100);
+            dataFrame[i].setLayout(new GridLayout(1, 1));
+            label.setOpaque(true);
+            label.setBackground(constant.lightBlue);
+            dataFrame[i].setUndecorated(true);
+            dataFrame[i].setLocationRelativeTo(null);
+            dataFrame[i].setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            dataFrame[i].add(label);
             buttonData[index].addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent e) {
-                    popupMenu.show(buttonData[index], 50, buttonData[index].getHeight());
+                    dataFrame[index].setVisible(true);
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-                    popupMenu.setVisible(false);
+                    dataFrame[index].setVisible(false);
                 }
             });
         }
